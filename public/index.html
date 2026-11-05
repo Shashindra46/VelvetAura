@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" class="dark-mode">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <!-- Primary Meta Tags -->
+  <title>VelvetAura — Curated Luxury Imported Beauty & Fragrances</title>
+  <meta name="title" content="VelvetAura — Curated Luxury Imported Beauty & Fragrances" />
+  <meta name="description" content="Discover rare, authentic imported skincare, cosmetics, and haute parfumerie directly sourced from Paris, Seoul, Tokyo, and Milan." />
+  <meta name="theme-color" content="#0B0B13" />
+  <meta name="color-scheme" content="dark" />
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="VelvetAura — Curated Luxury Imported Beauty" />
+  <meta property="og:description" content="Luxury imported beauty products with guaranteed authenticity and direct global cargo fulfillment." />
+
+  <!-- Google Fonts Preconnect & Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Core CSS Cascading Architecture -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/glassmorphism.css" />
+  <link rel="stylesheet" href="css/components.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>" />
+</head>
+
+<body class="velvet-body">
+  <!-- 1. Ambient Background Glow Orbs -->
+  <div class="ambient-glow-wrapper" aria-hidden="true">
+    <div class="glow-orb orb-purple"></div>
+    <div class="glow-orb orb-gold"></div>
+    <div class="glow-orb orb-rose"></div>
+  </div>
+
+  <!-- 2. Reusable SVG Symbols (Icon Defs) -->
+  <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="icon-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <path d="M16 10a4 4 0 0 1-8 0"/>
+      </symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </symbol>
+      <symbol id="icon-star" viewBox="0 0 24 24" fill="currentColor">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+      </symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </symbol>
+      <symbol id="icon-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="3 6 5 6 21 6"/>
+        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+        <line x1="10" y1="11" x2="10" y2="17"/>
+        <line x1="14" y1="11" x2="14" y2="17"/>
+      </symbol>
+      <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </symbol>
+      <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </symbol>
+      <symbol id="icon-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3.5c-.5-.5-2.5 0-4 1.5L13.5 8.5 5.3 6.7c-.8-.2-1.6.2-2 1-.3.8-.1 1.7.5 2.2l4.6 3.6-2.9 2.9-2.4-.6c-.5-.1-1.1.1-1.4.5-.4.5-.3 1.2.2 1.6l2.3 1.8 1.8 2.3c.4.5 1.1.6 1.6.2.4-.3.6-.9.5-1.4l-.6-2.4 2.9-2.9 3.6 4.6c.5.6 1.4.8 2.2.5.8-.4 1.2-1.2 1-2z"/>
+      </symbol>
+      <symbol id="icon-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3L12 3z"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- 3. Global Sticky Navigation Mounting Point -->
+  <header id="navbar-container" class="navbar-container" role="banner"></header>
+
+  <!-- 4. Main Content Mounting Area -->
+  <main id="app-root" class="main-layout" role="main">
+    <!-- View A: Hero Banner -->
+    <section id="hero-banner" class="hero-section" aria-label="VelvetAura Welcome">
+      <div class="hero-tagline">
+        <span>✨</span> Curated Haute Beauté &amp; Parfumerie <span>✨</span>
+      </div>
+      <h1 class="hero-headline">
+        Imported Luxury, <span class="text-gold-gradient">Direct from Global Capitals</span>
+      </h1>
+      <p class="hero-description">
+        Authentic skincare, rare cosmetics, and niche fragrances imported from Paris, Seoul, Tokyo, London, and Milan. Authenticity certified at every step.
+      </p>
+      <div class="hero-badges">
+        <span class="hero-perk-badge">🛡️ 100% Certified Authentic</span>
+        <span class="hero-perk-badge">✈️ Temperature-Controlled Global Air Cargo</span>
+        <span class="hero-perk-badge">✨ Free Islandwide Shipping Over Rs. 50.00</span>
+      </div>
+    </section>
+
+    <!-- View B: Catalog View -->
+    <section id="catalog-container" class="catalog-section" aria-label="Curated Catalog"></section>
+
+    <!-- View C: User Account & Order History (SPA router toggled) -->
+    <section id="account-view-container" class="account-section hidden" aria-label="Customer Account"></section>
+
+    <!-- View D: Order Confirmation Receipt View (SPA router toggled) -->
+    <section id="order-confirmation-container" class="confirmation-section hidden" aria-label="Order Confirmation"></section>
+
+    <!-- View E: Admin Management Studio & Oversight (SPA router guarded) -->
+    <section id="admin-view-container" class="admin-section hidden" aria-label="Admin Dashboard"></section>
+  </main>
+
+  <!-- 5. Global Footer Mounting Point -->
+  <footer id="footer-root" class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-title">Velvet<span class="text-gold">Aura</span></span>
+        <p class="footer-copy">Curated luxury imported beauty, skincare, and fragrance collections.</p>
+      </div>
+      <div class="footer-notes">
+        <p>© 2026 VelvetAura. Direct Global Cargo Fulfillment.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 6. Modals & Portals Container -->
+  <!-- Product Detail Modal Overlay -->
+  <div id="product-modal-container" class="modal-portal"></div>
+
+  <!-- Slide-Over Shopping Cart Drawer Portal -->
+  <div id="cart-drawer-container" class="drawer-portal"></div>
+
+  <!-- Checkout Modal Portal -->
+  <div id="checkout-modal-container" class="modal-portal"></div>
+
+  <!-- Authentication Modal (Sign In / Register) Portal -->
+  <div id="auth-modal-container" class="modal-portal"></div>
+
+  <!-- 7. Toast Notification Floating Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- 8. Client Application Bootstrap (ES Modules) -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

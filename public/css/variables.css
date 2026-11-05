@@ -1,0 +1,168 @@
+/**
+ * VelvetAura - Design Tokens & Custom Properties
+ * Dark-Mode Glassmorphism Design System
+ */
+
+:root {
+  /* =========================================================================
+     1. COLOR PALETTE: SURFACES & CANVAS
+     ========================================================================= */
+  --bg-primary: #0B0B13;            /* Deep obsidian night (base canvas) */
+  --bg-secondary: #12111D;          /* Midnight violet slate (sections/bars) */
+  --bg-surface: #1A1829;            /* Elevated dark surface */
+  --bg-elevated: #201D33;           /* Overlay surface (modals/drawers) */
+  --bg-overlay: rgba(5, 5, 10, 0.75);/* Backdrop dimming layer */
+
+  /* =========================================================================
+     2. GLASS MATERIAL FILLS (Variable Translucency)
+     ========================================================================= */
+  --glass-subtle: rgba(255, 255, 255, 0.03);      /* Inputs, subtle chips */
+  --glass-card: rgba(26, 24, 41, 0.65);           /* Catalog cards, filter bar */
+  --glass-card-hover: rgba(34, 30, 54, 0.75);     /* Interactive card hover */
+  --glass-elevated: rgba(28, 25, 46, 0.88);       /* Modals, popovers */
+  --glass-drawer: rgba(18, 17, 29, 0.94);         /* Slide-over cart drawer */
+  --glass-input: rgba(255, 255, 255, 0.045);     /* Form controls */
+  --glass-input-focus: rgba(255, 255, 255, 0.08); /* Focused inputs */
+
+  /* =========================================================================
+     3. FROSTED GLASS BORDERS & LIGHT REFRACTION
+     ========================================================================= */
+  --glass-border-subtle: rgba(255, 255, 255, 0.08);       /* Default glass outline */
+  --glass-border-mid: rgba(255, 255, 255, 0.14);          /* Card division & inputs */
+  --glass-border-highlight: rgba(255, 255, 255, 0.22);    /* Top-edge light prism */
+  --glass-border-gold: rgba(224, 169, 109, 0.45);        /* Champagne accent border */
+  --glass-border-purple: rgba(157, 78, 221, 0.45);      /* Velvet accent border */
+
+  /* =========================================================================
+     4. LUMINOUS BRAND ACCENTS & METALLIC SHIMMERS
+     ========================================================================= */
+  /* Champagne Gold (Primary CTA, badges, ratings) */
+  --accent-gold: #E0A96D;
+  --accent-gold-hover: #F0BC83;
+  --accent-gold-light: #FFF1D6;
+  --accent-gold-muted: rgba(224, 169, 109, 0.16);
+  --accent-gold-glow: rgba(224, 169, 109, 0.38);
+
+  /* Royal Velvet Purple (Atmospheric glow, gradients) */
+  --accent-purple: #9D4EDD;
+  --accent-purple-hover: #B265F0;
+  --accent-purple-light: #E0AAFF;
+  --accent-purple-muted: rgba(157, 78, 221, 0.16);
+  --accent-purple-glow: rgba(157, 78, 221, 0.38);
+
+  /* French Rose (Wishlist, discounts, beauty highlights) */
+  --accent-rose: #F43F5E;
+  --accent-rose-hover: #FB7185;
+  --accent-rose-muted: rgba(244, 63, 94, 0.16);
+  --accent-rose-glow: rgba(244, 63, 94, 0.38);
+
+  /* Active K-Beauty Moisture Cyan */
+  --accent-cyan: #38BDF8;
+  --accent-cyan-muted: rgba(56, 189, 248, 0.16);
+
+  /* =========================================================================
+     5. TYPOGRAPHY COLOR HIERARCHY (WCAG AA/AAA Compliant)
+     ========================================================================= */
+  --text-high: #F8FAFC;        /* 98% white for headings and primary titles */
+  --text-medium: #CBD5E1;      /* 82% silver for body copy and descriptions */
+  --text-muted: #94A3B8;       /* 60% slate for secondary tags, subtitles */
+  --text-dim: #64748B;         /* 40% slate for subtle icons and placeholders */
+  --text-on-gold: #0B0B13;     /* Deep dark text for contrast on gold buttons */
+  --text-on-purple: #FFFFFF;   /* Crisp white text for contrast on purple buttons */
+
+  /* =========================================================================
+     6. SEMANTIC FEEDBACK & INVENTORY TOKENS
+     ========================================================================= */
+  --status-success: #10B981;         /* In-stock, order success */
+  --status-success-bg: rgba(16, 185, 129, 0.14);
+  --status-success-border: rgba(16, 185, 129, 0.35);
+
+  --status-warning: #F59E0B;         /* Low stock ("Only X left") */
+  --status-warning-bg: rgba(245, 158, 11, 0.14);
+  --status-warning-border: rgba(245, 158, 11, 0.35);
+
+  --status-danger: #EF4444;          /* Out of stock, payment error */
+  --status-danger-bg: rgba(239, 68, 68, 0.14);
+  --status-danger-border: rgba(239, 68, 68, 0.35);
+
+  /* =========================================================================
+     7. BACKDROP FILTER BLURS
+     ========================================================================= */
+  --blur-subtle: blur(8px);
+  --blur-standard: blur(16px) saturate(180%);
+  --blur-heavy: blur(24px) saturate(190%);
+  --blur-modal: blur(28px) saturate(200%);
+
+  /* =========================================================================
+     8. BOX SHADOWS & LUMINOUS GLOWS
+     ========================================================================= */
+  --shadow-card: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+  --shadow-card-hover: 0 16px 40px -8px rgba(0, 0, 0, 0.65), 0 0 24px -4px var(--accent-gold-glow);
+  --shadow-elevated: 0 20px 50px rgba(0, 0, 0, 0.75), 0 0 40px rgba(157, 78, 221, 0.12);
+  --shadow-drawer: -10px 0 50px rgba(0, 0, 0, 0.8), 0 0 40px rgba(157, 78, 221, 0.1);
+  --shadow-glow-gold: 0 0 24px var(--accent-gold-glow);
+  --shadow-glow-purple: 0 0 24px var(--accent-purple-glow);
+
+  /* =========================================================================
+     9. FONT FAMILIES & SCALING
+     ========================================================================= */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Inter', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Font Weights */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* =========================================================================
+     10. SPACING & SIZING SCALE
+     ========================================================================= */
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  /* Max Widths */
+  --container-max: 1380px;
+  --drawer-width: 440px;
+  --modal-max-width: 640px;
+  --detail-modal-max-width: 960px;
+
+  /* =========================================================================
+     11. BORDER RADII
+     ========================================================================= */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* =========================================================================
+     12. TRANSITION TIMING CURVES
+     ========================================================================= */
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms var(--ease-smooth);
+  --transition-slow: 400ms var(--ease-smooth);
+
+  /* =========================================================================
+     13. Z-INDEX HIERARCHY
+     ========================================================================= */
+  --z-background: -1;
+  --z-orbs: 0;
+  --z-content: 10;
+  --z-sticky-nav: 100;
+  --z-drawer-backdrop: 200;
+  --z-drawer: 210;
+  --z-modal-backdrop: 300;
+  --z-modal: 310;
+  --z-toast: 400;
+}

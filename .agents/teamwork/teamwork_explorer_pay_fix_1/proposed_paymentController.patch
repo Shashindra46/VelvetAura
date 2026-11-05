@@ -1,0 +1,46 @@
+--- src/controllers/paymentController.js
++++ src/controllers/paymentController.js
+@@ -71,8 +71,28 @@
+-    // 4. Idempotency check: if already marked 'paid' and incoming is status 2 (success)
+-    if (order.paymentStatus === 'paid' && Number(status_code) === 2) {
+-      return res.status(200).json({
+-        success: true,
+-        message: 'Order already marked as paid',
+-        orderId: order.orderNumber,
+-      });
+-    }
++    // 4. Idempotency and State Transition Guards
++
++    // 4a. If order is already paid, ignore duplicate success or late/stale cancel/fail/pending notifications
++    if (order.paymentStatus === 'paid') {
++      return res.status(200).json({
++        success: true,
++        message:
++          Number(status_code) === 2
++            ? 'Order already marked as paid'
++            : 'Order already paid; ignoring stale or conflicting status notification',
++        orderId: order.orderNumber,
++        orderNumber: order.orderNumber,
++        paymentStatus: order.paymentStatus,
++      });
++    }
++
++    // 4b. If order is already failed or cancelled, ignore duplicate failure callbacks
++    // to prevent double inventory rollback and redundant updates
++    const wasAlreadyFailed =
++      order.paymentStatus === 'failed' || order.status === 'cancelled';
++    if (newPaymentStatus === 'failed' && wasAlreadyFailed) {
++      return res.status(200).json({
++        success: true,
++        message:
++          'Order already marked as failed/cancelled; duplicate notification ignored',
++        orderId: order.orderNumber,
++        orderNumber: order.orderNumber,
++        paymentStatus: order.paymentStatus,
++      });
++    }
+@@ -105,3 +125,3 @@
+-      // Stock rollback compensation for canceled orders
+-      if (order.items && order.items.length > 0) {
++      // Stock rollback compensation strictly on initial transition to failed/cancelled
++      if (!wasAlreadyFailed && order.items && order.items.length > 0) {

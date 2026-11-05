@@ -1,0 +1,377 @@
+/**
+ * VelvetAura - Glassmorphism System & Ambient Glow Engine
+ */
+
+/* =========================================================================
+   1. AMBIENT BACKGROUND GLOW ENGINE
+   ========================================================================= */
+.ambient-glow-wrapper {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: var(--z-orbs);
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.8;
+  will-change: transform;
+}
+
+/* Top-Left Velvet Royal Purple Orb */
+.glow-orb.orb-purple {
+  top: -15%;
+  left: 10%;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(157, 78, 221, 0.22) 0%, rgba(157, 78, 221, 0) 70%);
+  animation: float-orb-1 22s ease-in-out infinite alternate;
+}
+
+/* Bottom-Right Warm Champagne Gold Orb */
+.glow-orb.orb-gold {
+  bottom: 10%;
+  right: 5%;
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(224, 169, 109, 0.16) 0%, rgba(224, 169, 109, 0) 70%);
+  animation: float-orb-2 26s ease-in-out infinite alternate;
+}
+
+/* Center-Floating Rose Accent Orb */
+.glow-orb.orb-rose {
+  top: 45%;
+  left: 45%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(244, 63, 94, 0.10) 0%, rgba(244, 63, 94, 0) 70%);
+  animation: float-orb-3 18s ease-in-out infinite alternate;
+}
+
+@keyframes float-orb-1 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(80px, 60px) scale(1.12); }
+  100% { transform: translate(-60px, 100px) scale(0.92); }
+}
+
+@keyframes float-orb-2 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-70px, -90px) scale(1.15); }
+  100% { transform: translate(50px, -50px) scale(0.95); }
+}
+
+@keyframes float-orb-3 {
+  0% { transform: translate(0, 0) scale(0.9); }
+  100% { transform: translate(-100px, 80px) scale(1.2); }
+}
+
+/* =========================================================================
+   2. MULTI-TIER GLASS SURFACES
+   ========================================================================= */
+
+/* Glass Tier 1: Baseline Glass Panel */
+.glass-panel {
+  background: var(--glass-card);
+  backdrop-filter: var(--blur-standard);
+  -webkit-backdrop-filter: var(--blur-standard);
+  border: 1px solid var(--glass-border-subtle);
+  border-top: 1px solid var(--glass-border-highlight);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+/* Glass Tier 2: Product & Feature Cards (with dynamic hover lift) */
+.glass-card {
+  background: var(--glass-card);
+  backdrop-filter: var(--blur-standard);
+  -webkit-backdrop-filter: var(--blur-standard);
+  border: 1px solid var(--glass-border-subtle);
+  border-top: 1px solid var(--glass-border-highlight);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+  will-change: transform;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--glass-border-gold);
+  border-top-color: rgba(255, 255, 255, 0.35);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Glass Tier 3: Elevated Modals & Drawers */
+.glass-elevated {
+  background: var(--glass-elevated);
+  backdrop-filter: var(--blur-heavy);
+  -webkit-backdrop-filter: var(--blur-heavy);
+  border: 1px solid var(--glass-border-mid);
+  border-top: 1px solid var(--glass-border-highlight);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-elevated);
+}
+
+/* Glass Backdrop Overlays */
+.glass-backdrop {
+  background: rgba(5, 5, 10, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Glass Tier 4: Inputs & Interactive Form Controls */
+.glass-input {
+  background: var(--glass-input);
+  backdrop-filter: var(--blur-subtle);
+  -webkit-backdrop-filter: var(--blur-subtle);
+  border: 1px solid var(--glass-border-mid);
+  border-radius: var(--radius-md);
+  color: var(--text-high);
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+  width: 100%;
+}
+
+.glass-input::placeholder {
+  color: var(--text-dim);
+}
+
+.glass-input:focus {
+  background: var(--glass-input-focus);
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 16px var(--accent-gold-glow);
+  outline: none;
+}
+
+/* Glass Tier 5: Pills, Origin Badges & Category Tabs */
+.glass-pill {
+  background: var(--glass-subtle);
+  backdrop-filter: var(--blur-subtle);
+  -webkit-backdrop-filter: var(--blur-subtle);
+  border: 1px solid var(--glass-border-subtle);
+  border-radius: var(--radius-full);
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  font-weight: var(--fw-medium);
+  color: var(--text-medium);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.glass-pill:hover,
+.glass-pill.active {
+  background: var(--accent-gold-muted);
+  border-color: var(--glass-border-gold);
+  color: var(--accent-gold);
+  box-shadow: 0 0 12px var(--accent-gold-glow);
+}
+
+/* Select element styled in glass */
+.glass-select {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: var(--blur-subtle);
+  -webkit-backdrop-filter: var(--blur-subtle);
+  border: 1px solid var(--glass-border-mid);
+  border-radius: var(--radius-md);
+  color: var(--text-high);
+  padding: 8px 14px;
+  font-size: 0.88rem;
+  outline: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.glass-select:focus {
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 12px var(--accent-gold-glow);
+}
+
+.glass-select option {
+  background: #1A1829;
+  color: var(--text-high);
+}
+
+/* =========================================================================
+   3. GLASS BUTTON PRIMITIVES
+   ========================================================================= */
+
+/* Primary CTA: Champagne Gold Glow */
+.btn-gold,
+.btn-primary-gold {
+  background: linear-gradient(135deg, #F0BC83 0%, #E0A96D 100%);
+  color: var(--text-on-gold);
+  font-weight: var(--fw-semibold);
+  font-size: 0.95rem;
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 16px var(--accent-gold-glow);
+  transition: all var(--transition-base);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.btn-gold:hover,
+.btn-primary-gold:hover {
+  background: linear-gradient(135deg, #FFF1D6 0%, #F0BC83 100%);
+  box-shadow: 0 6px 24px rgba(224, 169, 109, 0.55);
+  transform: translateY(-2px);
+}
+
+.btn-gold:active,
+.btn-primary-gold:active {
+  transform: translateY(0);
+}
+
+/* Secondary CTA: Translucent Glass Button */
+.btn-glass,
+.btn-secondary-glass {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-high);
+  border: 1px solid var(--glass-border-mid);
+  backdrop-filter: var(--blur-subtle);
+  -webkit-backdrop-filter: var(--blur-subtle);
+  font-weight: var(--fw-medium);
+  font-size: 0.9rem;
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.btn-glass:hover,
+.btn-secondary-glass:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--glass-border-highlight);
+  color: var(--text-high);
+  transform: translateY(-2px);
+}
+
+/* Icon Action Button (Circular Glass) */
+.btn-icon-glass {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border-subtle);
+  color: var(--text-medium);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.btn-icon-glass:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--glass-border-highlight);
+  color: var(--text-high);
+}
+
+/* Text link button */
+.btn-text-gold {
+  color: var(--accent-gold);
+  font-size: 0.85rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.btn-text-gold:hover {
+  color: var(--accent-gold-hover);
+}
+
+/* =========================================================================
+   4. INTERACTIVE KEYFRAME ANIMATIONS
+   ========================================================================= */
+
+/* Reactive Cart Badge Pulse Animation */
+@keyframes badge-bump {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.4); }
+  75% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+.badge-bump,
+.badge-pulse {
+  animation: badge-bump 0.4s var(--ease-spring);
+}
+
+@keyframes badge-bounce-glow {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(224, 169, 109, 0);
+  }
+  35% {
+    transform: scale(1.45);
+    box-shadow: 0 0 20px rgba(224, 169, 109, 0.9), 0 0 35px rgba(157, 78, 221, 0.6);
+  }
+  65% {
+    transform: scale(0.92);
+    box-shadow: 0 0 10px rgba(224, 169, 109, 0.4);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(224, 169, 109, 0);
+  }
+}
+
+.badge-pop {
+  animation: badge-bounce-glow 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Shimmer Loading Skeleton */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.02) 25%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.02) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s infinite;
+  border-radius: var(--radius-md);
+}
+
+/* Check circle pulse */
+@keyframes check-pulse {
+  0% { transform: scale(0.85); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(16, 185, 129, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.check-circle-pulse {
+  animation: check-pulse 1.8s infinite;
+}
+
+/* =========================================================================
+   5. PROGRESSIVE ENHANCEMENT FALLBACK
+   ========================================================================= */
+@supports not (backdrop-filter: blur(1px)) {
+  .glass-card,
+  .glass-panel {
+    background: rgba(18, 17, 29, 0.95);
+  }
+  .glass-elevated {
+    background: rgba(24, 22, 38, 0.98);
+  }
+  .glass-input {
+    background: #1A1829;
+  }
+}
